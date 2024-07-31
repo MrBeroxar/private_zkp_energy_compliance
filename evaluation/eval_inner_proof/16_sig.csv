@@ -1,0 +1,3 @@
+type,proof inputs arraysize,constraints,time in s: compile,time in s: setup,time in s: compute-witness,time in s: generate-proof,time in s: verify
+sixteen_sig,1,1493998,1303.1787929534912,379.6483368873596,65.39007806777954,7.248703956604004,0.07080578804016113
+sixteen_sig,3,Error extracting,0.02806687355041504,0.017507076263427734,56.122719049453735,285.90708088874817,0.12750792503356934

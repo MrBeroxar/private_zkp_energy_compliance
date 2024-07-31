@@ -1,0 +1,168 @@
+{
+  "inputs": [
+    {
+      "name": "privateInputs",
+      "public": false,
+      "type": "struct",
+      "components": {
+        "name": "PrivateInputs",
+        "generics": [],
+        "members": [
+          {
+            "name": "proofs",
+            "type": "array",
+            "components": {
+              "size": 1,
+              "type": "struct",
+              "components": {
+                "name": "Proof",
+                "generics": [
+                  1
+                ],
+                "members": [
+                  {
+                    "name": "proof",
+                    "type": "struct",
+                    "components": {
+                      "name": "ProofInner",
+                      "generics": [],
+                      "members": [
+                        {
+                          "name": "a",
+                          "type": "array",
+                          "components": {
+                            "size": 2,
+                            "type": "field"
+                          }
+                        },
+                        {
+                          "name": "b",
+                          "type": "array",
+                          "components": {
+                            "size": 2,
+                            "type": "array",
+                            "components": {
+                              "size": 2,
+                              "type": "field"
+                            }
+                          }
+                        },
+                        {
+                          "name": "c",
+                          "type": "array",
+                          "components": {
+                            "size": 2,
+                            "type": "field"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "inputs",
+                    "type": "array",
+                    "components": {
+                      "size": 1,
+                      "type": "field"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "keys",
+            "type": "array",
+            "components": {
+              "size": 1,
+              "type": "struct",
+              "components": {
+                "name": "VerificationKey",
+                "generics": [
+                  2
+                ],
+                "members": [
+                  {
+                    "name": "h",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "array",
+                      "components": {
+                        "size": 2,
+                        "type": "field"
+                      }
+                    }
+                  },
+                  {
+                    "name": "g_alpha",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "field"
+                    }
+                  },
+                  {
+                    "name": "h_beta",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "array",
+                      "components": {
+                        "size": 2,
+                        "type": "field"
+                      }
+                    }
+                  },
+                  {
+                    "name": "g_gamma",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "field"
+                    }
+                  },
+                  {
+                    "name": "h_gamma",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "array",
+                      "components": {
+                        "size": 2,
+                        "type": "field"
+                      }
+                    }
+                  },
+                  {
+                    "name": "query",
+                    "type": "array",
+                    "components": {
+                      "size": 2,
+                      "type": "array",
+                      "components": {
+                        "size": 2,
+                        "type": "field"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "limit",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "output": {
+    "type": "tuple",
+    "components": {
+      "elements": []
+    }
+  }
+}

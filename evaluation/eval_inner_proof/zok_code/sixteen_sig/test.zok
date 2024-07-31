@@ -1,0 +1,35 @@
+from "ecc/decaf377.zok" import verifyEddsa;
+import "utils/casts/u32_to_field.zok" as u32_to_field;
+
+def main(private field[2] R1, private field S1, private field[2] R2, private field S2, private field[2] R3, private field S3, private field[2] R4, private field S4, private field[2] R5, private field S5, private field[2] R6, private field S6, private field[2] R7, private field S7, private field[2] R8, private field S8, private field[2] R9, private field S9, private field[2] R10, private field S10, private field[2] R11, private field S11, private field[2] R12, private field S12, private field[2] R13, private field S13, private field[2] R14, private field S14, private field[2] R15, private field S15, private field[2] R16, private field S16, private field[2] A, private u32[32] ConsumptionPart1, private u32[32] ConsumptionPart2, private u32[32] ConsumptionPart3, private u32[32] ConsumptionPart4, private u32[32] ProductionPart1, private u32[32] ProductionPart2, private u32[32] ProductionPart3, private u32[32] ProductionPart4, field netResult){
+    assert(verifyEddsa(R1, S1, A, ConsumptionPart1[0..8], ProductionPart1[0..8]));
+    assert(verifyEddsa(R2, S2, A, ConsumptionPart1[8..16], ProductionPart1[8..16]));
+    assert(verifyEddsa(R3, S3, A, ConsumptionPart1[16..24], ProductionPart1[16..24]));
+    assert(verifyEddsa(R4, S4, A, ConsumptionPart1[24..32], ProductionPart1[24..32]));
+    assert(verifyEddsa(R5, S5, A, ConsumptionPart2[0..8], ProductionPart2[0..8]));
+    assert(verifyEddsa(R6, S6, A, ConsumptionPart2[8..16], ProductionPart2[8..16]));
+    assert(verifyEddsa(R7, S7, A, ConsumptionPart2[16..24], ProductionPart2[16..24]));
+    assert(verifyEddsa(R8, S8, A, ConsumptionPart2[24..32], ProductionPart2[24..32]));
+    assert(verifyEddsa(R9, S9, A, ConsumptionPart3[0..8], ProductionPart3[0..8]));
+    assert(verifyEddsa(R10, S10, A, ConsumptionPart3[8..16], ProductionPart3[8..16]));
+    assert(verifyEddsa(R11, S11, A, ConsumptionPart3[16..24], ProductionPart3[16..24]));
+    assert(verifyEddsa(R12, S12, A, ConsumptionPart3[24..32], ProductionPart3[24..32]));
+    assert(verifyEddsa(R13, S13, A, ConsumptionPart4[0..8], ProductionPart4[0..8]));
+    assert(verifyEddsa(R14, S14, A, ConsumptionPart4[8..16], ProductionPart4[8..16]));
+    assert(verifyEddsa(R15, S15, A, ConsumptionPart4[16..24], ProductionPart4[16..24]));
+    assert(verifyEddsa(R16, S16, A, ConsumptionPart4[24..32], ProductionPart4[24..32]));
+
+    u32 mut sumConsumption = 0;
+    u32 mut sumProduction = 0;
+
+    for u32 i in 0..32 {
+	    sumConsumption = sumConsumption + ConsumptionPart1[i] + ConsumptionPart2[i] ;
+        sumProduction = sumProduction + ProductionPart1[i] + ProductionPart2[i];
+    }
+
+    field fieldSumConsumption = u32_to_field(sumConsumption);
+    field fieldSumProduction = u32_to_field(sumProduction);
+    field calculatedNetResult = fieldSumConsumption - fieldSumProduction;
+    assert(calculatedNetResult == netResult);
+
+}

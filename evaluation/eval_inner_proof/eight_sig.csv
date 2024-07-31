@@ -1,0 +1,2 @@
+type,proof inputs arraysize,constraints,time in s: compile,time in s: setup,time in s: compute-witness,time in s: generate-proof,time in s: verify
+eight_sig,1,747462,201.31740999221802,146.07128596305847,28.333799123764038,108.03823804855347,0.0927422046661377

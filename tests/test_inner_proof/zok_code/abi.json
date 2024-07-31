@@ -1,0 +1,70 @@
+{
+  "inputs": [
+    {
+      "name": "R1",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 2,
+        "type": "field"
+      }
+    },
+    {
+      "name": "S1",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "R2",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 2,
+        "type": "field"
+      }
+    },
+    {
+      "name": "S2",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "A",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 2,
+        "type": "field"
+      }
+    },
+    {
+      "name": "Consumption",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 16,
+        "type": "u32"
+      }
+    },
+    {
+      "name": "Production",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 16,
+        "type": "u32"
+      }
+    },
+    {
+      "name": "netResult",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "output": {
+    "type": "tuple",
+    "components": {
+      "elements": []
+    }
+  }
+}

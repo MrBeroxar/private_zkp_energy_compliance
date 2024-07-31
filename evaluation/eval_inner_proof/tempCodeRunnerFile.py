@@ -1,0 +1,1 @@
+zokrates compile -i test.zok -c bls12_377

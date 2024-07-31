@@ -1,0 +1,2 @@
+type,proof inputs arraysize,constraints,time in s: compile,time in s: setup,time in s: compute-witness,time in s: generate-proof,time in s: verify
+32_sig,1,2987070,8338.544342756271,888.1489751338959,98.45432686805725,743.2863800525665,0.13568592071533203

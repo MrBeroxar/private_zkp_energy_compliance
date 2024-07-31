@@ -1,0 +1,2 @@
+number of inner proofs,proof inputs arraysize,constraints,time in s: compile,time in s: setup,time in s: compute-witness,time in s: generate-proof,time in s: verify
+eight,1,388252,265.74504804611206,265.60641503334045,47.0061309337616,349.8080928325653,0.13562273979187012

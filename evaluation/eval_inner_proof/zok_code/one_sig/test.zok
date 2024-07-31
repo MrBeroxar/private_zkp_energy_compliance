@@ -1,0 +1,19 @@
+from "ecc/decaf377.zok" import verifyEddsa;
+import "utils/casts/u32_to_field.zok" as u32_to_field;
+
+def main(private field[2] R1, private field S1, private field[2] A1, private u32[8] Consumption, private u32[8] Production, field netResult){
+    assert(verifyEddsa(R1, S1, A1, Consumption[0..8], Production[0..8]));
+
+    u32 mut sumConsumption = 0;
+    u32 mut sumProduction = 0;
+
+    for u32 i in 0..8 {
+        sumConsumption = sumConsumption + Consumption[i];
+        sumProduction = sumProduction + Production[i];
+    }
+    field fieldSumConsumption = u32_to_field(sumConsumption);
+    field fieldSumProduction = u32_to_field(sumProduction);
+    field calculatedNetResult = fieldSumConsumption - fieldSumProduction;
+    assert(calculatedNetResult == netResult);
+
+}

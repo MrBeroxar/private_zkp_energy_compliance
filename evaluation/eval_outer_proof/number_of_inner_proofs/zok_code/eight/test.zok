@@ -1,0 +1,28 @@
+from "snark/gm17" import main as verify, Proof, VerificationKey;
+
+const u32 PROOF_INPUTS = 1;
+const u32 VERIFICATION_KEY_SIZE = PROOF_INPUTS + 1;
+const u32 NUM_PROOFS = 8;
+const field prime_bs = 8444461749428370424248824938781546531375899335154063827935233455917409239041;
+
+struct PrivateInputs {
+    Proof<PROOF_INPUTS>[NUM_PROOFS] proofs;
+    VerificationKey<VERIFICATION_KEY_SIZE>[NUM_PROOFS] keys;
+}
+
+def convert_negative_num_from_bls_to_bw(field bls_num) -> field{
+    field diff = prime_bs - bls_num;
+    field bw_num = 0 - diff;
+    return bw_num;
+}
+
+def main(private PrivateInputs privateInputs, field limit) {
+    field mut totalNetResult = 0;
+
+    for u32 i in 0..NUM_PROOFS {
+        assert(verify(privateInputs.proofs[i], privateInputs.keys[i]));
+	field householdNetResult = privateInputs.proofs[i].inputs[PROOF_INPUTS-1];
+	totalNetResult = totalNetResult + (householdNetResult >= 100000000 ? convert_negative_num_from_bls_to_bw(householdNetResult) : householdNetResult); //assuming no householdNetResult is above 100000000
+    }
+    assert(totalNetResult <= limit);
+}

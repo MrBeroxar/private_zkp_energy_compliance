@@ -1,0 +1,6 @@
+numpy
+pandas
+pyarrow
+scipy
+git+https://github.com/uZhW8Rgl/pycrypto.git@ce076cb5eb00c696fadd8cab800667180b27ded3#egg=zokrates-pycrypto
+bitstring==3.1.5
