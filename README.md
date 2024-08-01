@@ -1,5 +1,5 @@
 # Bachelor's Thesis: Privacy-Preserving Energy Compliance in Local Renewable Energy Markets
-
+NOTE: Thesis.pdf is not rendered here in GitHub you have to download it manually to access 
 ## Get Started
 The ZoKrates stdlib and PyCrypto version of this repository are used from [this Bachelor Thesis](https://github.com/uZhW8Rgl/Bachelor-Thesis) and also included as src.
 
